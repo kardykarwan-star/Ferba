@@ -2,1034 +2,450 @@
 <!DOCTYPE html>
 <html lang="ku" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#082b69">
-  <meta name="description" content="فێربە؛ شوێنێکی خۆش و سەرنجڕاکێش بۆ فێربوونی منداڵان.">
-  <title>فێربە | FEERBA</title>
-
-  <style>
-    :root {
-      --navy: #082b69;
-      --blue: #1264c5;
-      --light-blue: #eaf5ff;
-      --yellow: #ffc928;
-      --white: #ffffff;
-      --text: #102b55;
-      --muted: #7186a4;
-      --shadow: 0 8px 24px rgba(8,43,105,.10);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Tahoma, Arial, sans-serif;
-      background: #f7fbff;
-      color: var(--text);
-      line-height: 1.8;
-      transition: .3s;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button, input {
-      font-family: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    /* HEADER */
-
-    .site-header {
-      background: var(--navy);
-      min-height: 86px;
-      padding: 13px 4%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      color: white;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-
-    .brand img {
-      width: 55px;
-      height: 55px;
-      object-fit: contain;
-    }
-
-    .brand-name {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.3;
-    }
-
-    .brand-name strong {
-      font-size: 23px;
-      color: var(--yellow);
-    }
-
-    .brand-name small {
-      font-size: 10px;
-      letter-spacing: 3px;
-      color: white;
-      text-align: center;
-    }
-
-    .top-actions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      flex-wrap: wrap;
-    }
-
-    .tool-button {
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 30px;
-      background: rgba(255,255,255,.09);
-      color: white;
-      padding: 9px 13px;
-      font-size: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: .2s;
-    }
-
-    .tool-button:hover {
-      background: rgba(255,255,255,.2);
-      transform: translateY(-2px);
-    }
-
-    .tool-button svg {
-      width: 16px;
-      height: 16px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .tool-button.signup {
-      background: var(--yellow);
-      color: var(--navy);
-      font-weight: bold;
-      border-color: var(--yellow);
-    }
-
-    .tool-button.login {
-      background: white;
-      color: var(--navy);
-      font-weight: bold;
-    }
-
-    /* SEARCH */
-
-    .search-panel {
-      background: white;
-      padding: 18px 5%;
-      box-shadow: var(--shadow);
-    }
-
-    .search-panel[hidden] {
-      display: none;
-    }
-
-    .search-panel label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-    .search-field {
-      display: flex;
-      gap: 8px;
-    }
-
-    .search-field input {
-      flex: 1;
-      min-width: 0;
-      padding: 12px;
-      border: 1px solid #d9e5f4;
-      border-radius: 12px;
-      outline: none;
-    }
-
-    .search-field button {
-      border: none;
-      background: var(--yellow);
-      color: var(--navy);
-      font-weight: bold;
-      padding: 10px 20px;
-      border-radius: 12px;
-    }
-
-    .search-message {
-      font-size: 12px;
-      margin-top: 7px;
-      color: var(--blue);
-    }
-
-    /* MAIN */
-
-    main {
-      max-width: 1250px;
-      width: 94%;
-      margin: 25px auto 35px;
-    }
-
-    /* HERO */
-
-    .welcome-hero {
-      min-height: 255px;
-      border-radius: 25px;
-      padding: 35px 5%;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(255,255,255,.12), transparent 30%),
-        linear-gradient(110deg, #082b69, #1264c5 65%, #3998ed);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 2;
-      max-width: 55%;
-    }
-
-    .eyebrow {
-      color: var(--yellow);
-      font-size: 13px;
-      font-weight: bold;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-
-    .sparkle {
-      font-size: 20px;
-      margin-left: 5px;
-    }
-
-    .hero-copy h1 {
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1.4;
-      margin-bottom: 7px;
-      color: white;
-    }
-
-    .hero-copy h1 em {
-      color: var(--yellow);
-      font-style: normal;
-    }
-
-    .hero-copy p {
-      font-size: 14px;
-      color: #e5f2ff;
-      margin-bottom: 20px;
-    }
-
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 15px;
-      background: var(--yellow);
-      color: var(--navy);
-      padding: 12px 25px;
-      border-radius: 30px;
-      font-weight: bold;
-      box-shadow: 0 5px 0 #d99c00;
-      transition: .2s;
-    }
-
-    .hero-cta:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 0 #d99c00;
-    }
-
-    .hero-art {
-      width: 40%;
-      min-height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .hero-book {
-      font-size: 80px;
-      filter: drop-shadow(0 8px 7px rgba(0,0,0,.2));
-      transform: rotate(-8deg);
-      z-index: 2;
-    }
-
-    .hero-globe {
-      font-size: 43px;
-      position: absolute;
-      top: 5px;
-      right: 10%;
-    }
-
-    .hero-pencil {
-      font-size: 38px;
-      position: absolute;
-      bottom: 5px;
-      left: 8%;
-      transform: rotate(-25deg);
-    }
-
-    .floating-star {
-      position: absolute;
-      color: var(--yellow);
-      font-size: 25px;
-    }
-
-    .star-one {
-      top: 12%;
-      left: 15%;
-    }
-
-    .star-two {
-      bottom: 15%;
-      right: 8%;
-    }
-
-    .orbit {
-      position: absolute;
-      width: 220px;
-      height: 110px;
-      border: 1px dashed rgba(255,255,255,.5);
-      border-radius: 50%;
-      transform: rotate(-25deg);
-    }
-
-    .orbit-two {
-      transform: rotate(35deg);
-      width: 180px;
-    }
-
-    /* SECTION TITLE */
-
-    .section-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 30px 5px 18px;
-    }
-
-    .section-heading .eyebrow {
-      font-size: 11px;
-      color: #3979bb;
-      margin-bottom: 2px;
-    }
-
-    .section-heading h2 {
-      font-size: 25px;
-      color: var(--navy);
-    }
-
-    .heading-star {
-      color: var(--yellow);
-      font-size: 28px;
-    }
-
-    /* CATEGORY CARDS */
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      grid-template-rows: 190px 190px;
-      gap: 15px;
-    }
-
-    .category-card {
-      border-radius: 20px;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      padding: 15px;
-      box-shadow: var(--shadow);
-      border: 2px solid rgba(255,255,255,.8);
-      transition: transform .25s, box-shadow .25s;
-    }
-
-    .category-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 28px rgba(8,43,105,.16);
-    }
-
-    .language-card {
-      grid-column: span 2;
-      grid-row: span 2;
-      background: linear-gradient(145deg, #d9efff, #65b5f4);
-      color: var(--navy);
-      justify-content: space-between;
-      padding: 18px;
-      border: 3px solid white;
-    }
-
-    .language-card img {
-      display: block;
-      width: 100%;
-      height: 75%;
-      min-height: 180px;
-      object-fit: contain;
-      border-radius: 14px;
-    }
-
-    .card-tag {
-      align-self: flex-start;
-      background: rgba(255,255,255,.65);
-      color: var(--navy);
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 11px;
-    }
-
-    .language-card .category-title {
-      font-size: 20px;
-      background: var(--yellow);
-      color: var(--navy);
-      padding: 9px 22px;
-      border-radius: 25px;
-      box-shadow: 0 4px 0 #d99c00;
-    }
-
-    .card-arrow {
-      position: absolute;
-      bottom: 15px;
-      left: 15px;
-      background: white;
-      color: var(--navy);
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-    }
-
-    .category-emoji {
-      font-size: 48px;
-      margin-bottom: 10px;
-      filter: drop-shadow(0 5px 3px rgba(0,0,0,.18));
-    }
-
-    .category-title {
-      font-size: 19px;
-      font-weight: bold;
-    }
-
-    .coming-label {
-      font-size: 10px;
-      background: rgba(255,255,255,.2);
-      border: 1px solid rgba(255,255,255,.35);
-      border-radius: 20px;
-      padding: 3px 12px;
-      margin-top: 8px;
-    }
-
-    .math-card {
-      background: linear-gradient(145deg, #ff9c23, #f36a00);
-    }
-
-    .thinking-card {
-      background: linear-gradient(145deg, #a15be8, #6432c6);
-    }
-
-    .story-card {
-      background: linear-gradient(145deg, #39c98a, #119d68);
-    }
-
-    .video-card {
-      background: linear-gradient(145deg, #28a9e8, #0862bd);
-    }
-
-    /* BOTTOM NOTE */
-
-    .bottom-note {
-      margin-top: 20px;
-      background: #fff7d9;
-      border: 1px solid #ffebad;
-      border-radius: 17px;
-      padding: 18px 22px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      color: #765516;
-    }
-
-    .note-icon {
-      font-size: 30px;
-    }
-
-    .bottom-note strong {
-      font-size: 15px;
-    }
-
-    .bottom-note p {
-      font-size: 12px;
-      color: #927a43;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: var(--navy);
-      color: #d9e7fa;
-      padding: 18px 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      font-size: 11px;
-      flex-wrap: wrap;
-    }
-
-    /* DARK MODE */
-
-    body.dark-mode {
-      background: #101a2a;
-      color: #e9f2ff;
-    }
-
-    body.dark-mode .section-heading h2 {
-      color: white;
-    }
-
-    body.dark-mode .search-panel {
-      background: #172942;
-      color: white;
-    }
-
-    body.dark-mode .bottom-note {
-      background: #3a321c;
-      border-color: #625126;
-      color: #ffe49b;
-    }
-
-    body.dark-mode .bottom-note p {
-      color: #e8d59d;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 760px) {
-      .site-header {
-        justify-content: center;
-        padding: 10px 3%;
-        gap: 10px;
-      }
-
-      .brand {
-        order: -1;
-      }
-
-      .brand img {
-        width: 43px;
-        height: 43px;
-      }
-
-      .brand-name strong {
-        font-size: 19px;
-      }
-
-      .top-actions {
-        width: 100%;
-        gap: 5px;
-      }
-
-      .tool-button {
-        padding: 7px 10px;
-        font-size: 10px;
-      }
-
-      .tool-button svg {
-        width: 13px;
-        height: 13px;
-      }
-
-      main {
-        width: 94%;
-        margin-top: 17px;
-      }
-
-      .welcome-hero {
-        min-height: 230px;
-        padding: 23px 5%;
-        border-radius: 20px;
-      }
-
-      .hero-copy {
-        max-width: 65%;
-      }
-
-      .hero-copy h1 {
-        font-size: 29px;
-      }
-
-      .hero-copy p {
-        font-size: 11px;
-      }
-
-      .hero-cta {
-        padding: 9px 17px;
-        font-size: 12px;
-      }
-
-      .hero-art {
-        width: 32%;
-      }
-
-      .hero-book {
-        font-size: 55px;
-      }
-
-      .hero-globe {
-        font-size: 30px;
-      }
-
-      .hero-pencil {
-        font-size: 26px;
-      }
-
-      .section-heading h2 {
-        font-size: 21px;
-      }
-
-      .category-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: 180px 180px 180px;
-        gap: 12px;
-      }
-
-      .language-card {
-        grid-column: 2;
-        grid-row: 1 / span 2;
-      }
-
-      .language-card img {
-        height: 72%;
-        min-height: 120px;
-      }
-
-      .language-card .category-title {
-        font-size: 15px;
-        padding: 8px 13px;
-      }
-
-      .category-card {
-        border-radius: 17px;
-        padding: 10px;
-      }
-
-      .category-emoji {
-        font-size: 39px;
-      }
-
-      .category-title {
-        font-size: 15px;
-      }
-
-      .coming-label {
-        font-size: 9px;
-      }
-
-      .bottom-note {
-        padding: 13px;
-      }
-
-      footer {
-        justify-content: center;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .tool-button {
-        padding: 6px 7px;
-        font-size: 9px;
-      }
-
-      .hero-copy h1 {
-        font-size: 25px;
-      }
-
-      .category-grid {
-        grid-template-rows: 160px 160px 160px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#082b69">
+<meta name="description" content="فێربە؛ شوێنێکی خۆش بۆ فێربوونی منداڵان">
+<title>فێربە | FEERBA</title>
+
+<style>
+:root {
+  --navy:#082b69;
+  --blue:#1264c5;
+  --yellow:#ffc928;
+  --text:#102b55;
+  --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Tahoma,Arial,sans-serif;
+  background:#f7fbff;
+  color:var(--text);
+  line-height:1.8;
+  transition:.3s;
+}
+a{text-decoration:none;color:inherit}
+button,input{font-family:inherit}
+button{cursor:pointer}
+
+/* HEADER */
+.site-header{
+  background:var(--navy);
+  padding:13px 4%;
+  min-height:86px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  color:white;
+  flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{width:55px;height:55px;object-fit:contain}
+.brand-name{display:flex;flex-direction:column;line-height:1.3}
+.brand-name strong{font-size:23px;color:var(--yellow)}
+.brand-name small{font-size:10px;letter-spacing:3px;text-align:center}
+.top-actions{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap}
+.tool-button{
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:30px;
+  background:rgba(255,255,255,.09);
+  color:white;
+  padding:9px 13px;
+  font-size:12px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  transition:.2s;
+}
+.tool-button:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
+.tool-button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8}
+.tool-button.signup{background:var(--yellow);color:var(--navy);font-weight:bold}
+.tool-button.login{background:white;color:var(--navy);font-weight:bold}
+
+/* SEARCH */
+.search-panel{background:white;padding:18px 5%;box-shadow:0 8px 24px #082b691a}
+.search-panel[hidden]{display:none}
+.search-panel label{display:block;margin-bottom:8px;font-weight:bold}
+.search-field{display:flex;gap:8px}
+.search-field input{flex:1;min-width:0;padding:12px;border:1px solid #d9e5f4;border-radius:12px}
+.search-field button{border:0;background:var(--yellow);color:var(--navy);font-weight:bold;padding:10px 20px;border-radius:12px}
+.search-message{font-size:12px;margin-top:7px;color:var(--blue)}
+
+/* MAIN */
+main{max-width:1250px;width:94%;margin:25px auto 35px}
+
+/* HERO */
+.welcome-hero{
+  min-height:255px;
+  border-radius:25px;
+  padding:35px 5%;
+  background:radial-gradient(circle at 15% 20%,#ffffff1f,transparent 30%),linear-gradient(110deg,#082b69,#1264c5 65%,#3998ed);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 8px 24px #082b691a;
+}
+.hero-copy{position:relative;z-index:2;max-width:55%}
+.eyebrow{color:var(--yellow);font-size:13px;font-weight:bold;display:inline-block;margin-bottom:8px}
+.sparkle{font-size:20px;margin-left:5px}
+.hero-copy h1{font-size:clamp(30px,5vw,48px);line-height:1.4;margin-bottom:7px;color:white}
+.hero-copy h1 em{color:var(--yellow);font-style:normal}
+.hero-copy p{font-size:14px;color:#e5f2ff;margin-bottom:20px}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:15px;
+  background:var(--yellow);color:var(--navy);
+  padding:12px 25px;border-radius:30px;font-weight:bold;
+  box-shadow:0 5px 0 #d99c00;transition:.2s
+}
+.hero-cta:hover{transform:translateY(-3px)}
+.hero-art{width:40%;min-height:180px;display:flex;align-items:center;justify-content:center;position:relative}
+.hero-book{font-size:80px;filter:drop-shadow(0 8px 7px #0003);transform:rotate(-8deg);z-index:2}
+.hero-globe{font-size:43px;position:absolute;top:5px;right:10%}
+.hero-pencil{font-size:38px;position:absolute;bottom:5px;left:8%;transform:rotate(-25deg)}
+.floating-star{position:absolute;color:var(--yellow);font-size:25px}
+.star-one{top:12%;left:15%}
+.star-two{bottom:15%;right:8%}
+.orbit{position:absolute;width:220px;height:110px;border:1px dashed #ffffff80;border-radius:50%;transform:rotate(-25deg)}
+.orbit-two{transform:rotate(35deg);width:180px}
+
+/* SECTION TITLE */
+.section-heading{display:flex;align-items:center;justify-content:space-between;margin:30px 5px 18px}
+.section-heading .eyebrow{font-size:11px;color:#3979bb;margin-bottom:2px}
+.section-heading h2{font-size:25px;color:var(--navy)}
+.heading-star{color:var(--yellow);font-size:28px}
+
+/* CATEGORY GRID */
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-rows:190px 190px;
+  gap:15px;
+}
+.category-card{
+  border-radius:20px;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  padding:15px;
+  box-shadow:0 8px 24px #082b691a;
+  border:2px solid #ffffffcc;
+  transition:transform .25s,box-shadow .25s;
+}
+.category-card:hover{transform:translateY(-5px);box-shadow:0 14px 28px #082b6929}
+
+/* IMAGE CARDS */
+.language-card,.math-card,.thinking-card,.story-card,.video-card{
+  background:linear-gradient(145deg,#d9efff,#65b5f4);
+  color:var(--navy);
+  justify-content:space-between;
+  padding:15px;
+  border:3px solid white;
+}
+.language-card{grid-column:span 2;grid-row:span 2}
+.math-card{background:linear-gradient(145deg,#d9efff,#65b5f4)}
+.thinking-card{background:linear-gradient(145deg,#e5d7ff,#a878ef)}
+.story-card{background:linear-gradient(145deg,#d7f8e8,#65d5a4)}
+.video-card{background:linear-gradient(145deg,#d5efff,#69b9ed)}
+
+.card-tag{
+  align-self:flex-start;
+  background:#ffffffb8;
+  color:var(--navy);
+  padding:5px 12px;
+  border-radius:20px;
+  font-size:11px;
+}
+.category-image{
+  display:block;
+  width:100%;
+  height:calc(100% - 65px);
+  min-height:100px;
+  object-fit:contain;
+  background:transparent;
+  mix-blend-mode:multiply;
+}
+.category-title{
+  font-size:19px;
+  font-weight:bold;
+  text-align:center;
+}
+.language-card .category-title{
+  font-size:20px;
+  background:var(--yellow);
+  color:var(--navy);
+  padding:9px 22px;
+  border-radius:25px;
+  box-shadow:0 4px 0 #d99c00;
+}
+.card-arrow{
+  position:absolute;bottom:15px;left:15px;
+  background:white;color:var(--navy);
+  width:32px;height:32px;border-radius:50%;
+  display:grid;place-items:center
+}
+.coming-label{
+  font-size:10px;
+  background:#ffffff55;
+  border:1px solid #ffffff80;
+  border-radius:20px;
+  padding:3px 12px;
+  margin-top:5px;
+}
+
+/* BOTTOM NOTE */
+.bottom-note{
+  margin-top:20px;
+  background:#fff7d9;
+  border:1px solid #ffebad;
+  border-radius:17px;
+  padding:18px 22px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  color:#765516;
+}
+.note-icon{font-size:30px}
+.bottom-note strong{font-size:15px}
+.bottom-note p{font-size:12px;color:#927a43}
+
+/* FOOTER */
+footer{
+  background:var(--navy);
+  color:#d9e7fa;
+  padding:18px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  font-size:11px;
+  flex-wrap:wrap;
+}
+
+/* DARK MODE */
+body.dark-mode{background:#101a2a;color:#e9f2ff}
+body.dark-mode .section-heading h2{color:white}
+body.dark-mode .search-panel{background:#172942;color:white}
+body.dark-mode .bottom-note{background:#3a321c;border-color:#625126;color:#ffe49b}
+body.dark-mode .bottom-note p{color:#e8d59d}
+
+/* MOBILE */
+@media(max-width:760px){
+  .site-header{justify-content:center;padding:10px 3%;gap:10px}
+  .brand{order:-1}
+  .brand img{width:43px;height:43px}
+  .brand-name strong{font-size:19px}
+  .top-actions{width:100%;gap:5px}
+  .tool-button{padding:7px 10px;font-size:10px}
+  .tool-button svg{width:13px;height:13px}
+  main{width:94%;margin-top:17px}
+  .welcome-hero{min-height:230px;padding:23px 5%;border-radius:20px}
+  .hero-copy{max-width:65%}
+  .hero-copy h1{font-size:29px}
+  .hero-copy p{font-size:11px}
+  .hero-cta{padding:9px 17px;font-size:12px}
+  .hero-art{width:32%}
+  .hero-book{font-size:55px}
+  .hero-globe{font-size:30px}
+  .hero-pencil{font-size:26px}
+  .section-heading h2{font-size:21px}
+  .category-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-rows:180px 180px 180px;
+    gap:12px;
+  }
+  .language-card{grid-column:2;grid-row:1 / span 2}
+  .category-card{border-radius:17px;padding:10px}
+  .category-image{height:calc(100% - 55px);min-height:90px}
+  .language-card .category-title{font-size:15px;padding:8px 13px}
+  .category-title{font-size:15px}
+  .coming-label{font-size:9px}
+  .bottom-note{padding:13px}
+  footer{justify-content:center;text-align:center}
+}
+@media(max-width:380px){
+  .tool-button{padding:6px 7px;font-size:9px}
+  .hero-copy h1{font-size:25px}
+  .category-grid{grid-template-rows:160px 160px 160px}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-
-    <a class="brand" href="index.html" aria-label="فێربە">
-      <img
-        src="file_0000000049ec81f4a53a3143eda96773.png"
-        alt="لۆگۆی فێربە"
-      >
-      <span class="brand-name">
-        <strong>فێربە</strong>
-        <small>FEERBA</small>
-      </span>
-    </a>
-
-    <nav class="top-actions" aria-label="بەستەرەکان">
-
-      <button class="tool-button" id="searchToggle" type="button">
-        <svg viewBox="0 0 24 24">
-          <circle cx="10.8" cy="10.8" r="6.8"></circle>
-          <path d="m16 16 5 5"></path>
-        </svg>
-        <span>گەڕان</span>
-      </button>
-
-      <button class="tool-button" id="themeToggle" type="button">
-        <svg viewBox="0 0 24 24">
-          <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.7 8.7 0 1 0 20.5 15.2Z"></path>
-        </svg>
-        <span>دارک مۆد</span>
-      </button>
-
-      <a class="tool-button" href="contact.html">
-        <span>✉</span>
-        <span>پەیوەندی</span>
-      </a>
-
-      <a class="tool-button signup" href="register.html">
-        <span>♙+</span>
-        <span>دروستکردنی هەژمار</span>
-      </a>
-
-      <a class="tool-button login" href="login.html">
-        <span>⇥</span>
-        <span>چوونە ژوورەوە</span>
-      </a>
-
-    </nav>
-  </header>
-
-  <!-- SEARCH -->
-  <section class="search-panel" id="searchPanel" hidden>
-
-    <label for="siteSearch">چی دەتەوێت بدۆزیتەوە؟</label>
-
-    <div class="search-field">
-      <input
-        id="siteSearch"
-        type="search"
-        placeholder="بۆ نموونە: فێربوونی زمان..."
-      >
-
-      <button id="searchSubmit" type="button">
-        گەڕان
-      </button>
-    </div>
-
-    <p id="searchMessage" class="search-message"></p>
-
-  </section>
-
-  <main>
-
-    <!-- HERO -->
-    <section class="welcome-hero">
-
-      <div class="hero-copy">
-
-        <span class="eyebrow">
-          <span class="sparkle">✦</span>
-          جیهانێکی خۆش بۆ فێربوون
-        </span>
-
-        <h1>
-          بە خۆشی <em>فێربە!</em>
-        </h1>
-
-        <p>
-          یاری بکە، بزانە، فێربە و هەنگاو بە هەنگاو زیرەکتر ببە.
-        </p>
-
-        <a class="hero-cta" href="#learningSections">
-          دەست پێ بکە
-          <span>←</span>
-        </a>
-
-      </div>
-
-      <div class="hero-art" aria-hidden="true">
-
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-
-        <div class="floating-star star-one">★</div>
-        <div class="floating-star star-two">✦</div>
-
-        <div class="hero-book">📚</div>
-        <div class="hero-globe">🌍</div>
-        <div class="hero-pencil">✏️</div>
-
-      </div>
-
-    </section>
-
-    <!-- SECTION TITLE -->
-    <section class="section-heading" id="learningSections">
-
-      <div>
-        <span class="eyebrow">
-          شوێنی گەشتە فێرکارییەکەت
-        </span>
-
-        <h2>بەشەکانی فێربە</h2>
-      </div>
-
-      <span class="heading-star">★</span>
-
-    </section>
-
-    <!-- CATEGORIES -->
-    <section class="category-grid">
-
-      <!-- LANGUAGE -->
-      <a class="category-card language-card" href="language.html">
-
-        <span class="card-tag">
-          با لە زمانەوە دەست پێ بکەین
-        </span>
-
-        <img
-          src="file_00000000d1708210b6d5dcf49cd1ccc0.png"
-          alt="وێنەی فێربوونی زمان"
-        >
-
-        <span class="category-title">
-          فێربوونی زمان
-        </span>
-
-        <span class="card-arrow">←</span>
-
-      </a>
-
-      <!-- MATH -->
-      <a class="category-card math-card" href="coming-soon.html?section=math">
-
-        <span class="category-emoji">➗</span>
-
-        <span class="category-title">
-          بیرکاری
-        </span>
-
-        <span class="coming-label">
-          بەم زووانە
-        </span>
-
-      </a>
-
-      <!-- THINKING -->
-      <a class="category-card thinking-card" href="coming-soon.html?section=thinking">
-
-        <span class="category-emoji">🧩</span>
-
-        <span class="category-title">
-          یارییە فکرییەکان
-        </span>
-
-        <span class="coming-label">
-          بەم زووانە
-        </span>
-
-      </a>
-
-      <!-- STORIES -->
-      <a class="category-card story-card" href="coming-soon.html?section=stories">
-
-        <span class="category-emoji">📖</span>
-
-        <span class="category-title">
-          چیرۆک
-        </span>
-
-        <span class="coming-label">
-          بەم زووانە
-        </span>
-
-      </a>
-
-      <!-- VIDEOS -->
-      <a class="category-card video-card" href="coming-soon.html?section=videos">
-
-        <span class="category-emoji">🎬</span>
-
-        <span class="category-title">
-          فیلمی منداڵان
-        </span>
-
-        <span class="coming-label">
-          بەم زووانە
-        </span>
-
-      </a>
-
-    </section>
-
-    <!-- BOTTOM NOTE -->
-    <section class="bottom-note">
-
-      <span class="note-icon">🌟</span>
-
-      <div>
-        <strong>
-          هەر ڕۆژێک شتێکی نوێ فێربە!
-        </strong>
-
-        <p>
-          لە فێربەدا فێربوون دەبێتە یارییەکی خۆش.
-        </p>
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-
-    <span>© 2026 فێربە | FEERBA</span>
-
-    <span>
-      فێربوون، یاری، داهاتوویەکی ڕوون
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="فێربە">
+    <img src="file_0000000049ec81f4a53a3143eda96773.png" alt="لۆگۆی فێربە">
+    <span class="brand-name">
+      <strong>فێربە</strong>
+      <small>FEERBA</small>
     </span>
+  </a>
 
-  </footer>
+  <nav class="top-actions" aria-label="بەستەرەکان">
+    <button class="tool-button" id="searchToggle" type="button">
+      <span>⌕</span><span>گەڕان</span>
+    </button>
+    <button class="tool-button" id="themeToggle" type="button">
+      <span>☾</span><span>دارک مۆد</span>
+    </button>
+    <a class="tool-button" href="contact.html">✉ <span>پەیوەندی</span></a>
+    <a class="tool-button signup" href="register.html">♙+ <span>دروستکردنی هەژمار</span></a>
+    <a class="tool-button login" href="login.html">⇥ <span>چوونە ژوورەوە</span></a>
+  </nav>
+</header>
 
-  <!-- JAVASCRIPT -->
-  <script>
+<section class="search-panel" id="searchPanel" hidden>
+  <label for="siteSearch">چی دەتەوێت بدۆزیتەوە؟</label>
+  <div class="search-field">
+    <input id="siteSearch" type="search" placeholder="بۆ نموونە: فێربوونی زمان...">
+    <button id="searchSubmit" type="button">گەڕان</button>
+  </div>
+  <p id="searchMessage" class="search-message"></p>
+</section>
 
-    // SEARCH BUTTON
-    const searchToggle = document.getElementById("searchToggle");
-    const searchPanel = document.getElementById("searchPanel");
-    const siteSearch = document.getElementById("siteSearch");
-    const searchSubmit = document.getElementById("searchSubmit");
-    const searchMessage = document.getElementById("searchMessage");
+<main>
 
-    searchToggle.addEventListener("click", function () {
-      searchPanel.hidden = !searchPanel.hidden;
+<section class="welcome-hero">
+  <div class="hero-copy">
+    <span class="eyebrow">✦ جیهانێکی خۆش بۆ فێربوون</span>
+    <h1>بە خۆشی <em>فێربە!</em></h1>
+    <p>یاری بکە، بزانە، فێربە و هەنگاو بە هەنگاو زیرەکتر ببە.</p>
+    <a class="hero-cta" href="#learningSections">دەست پێ بکە ←</a>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="orbit"></div>
+    <div class="orbit orbit-two"></div>
+    <div class="floating-star star-one">★</div>
+    <div class="floating-star star-two">✦</div>
+    <div class="hero-book">📚</div>
+    <div class="hero-globe">🌍</div>
+    <div class="hero-pencil">✏️</div>
+  </div>
+</section>
 
-      if (!searchPanel.hidden) {
-        siteSearch.focus();
-      }
-    });
+<section class="section-heading" id="learningSections">
+  <div>
+    <span class="eyebrow">شوێنی گەشتە فێرکارییەکەت</span>
+    <h2>بەشەکانی فێربە</h2>
+  </div>
+  <span class="heading-star">★</span>
+</section>
 
-    function performSearch() {
+<section class="category-grid" aria-label="بەشە فێرکارییەکان">
 
-      const value = siteSearch.value.trim();
+  <a class="category-card language-card" href="language.html">
+    <span class="card-tag">با لە زمانەوە دەست پێ بکەین</span>
+    <img class="category-image" src="ferba-languages.png" alt="فێربوونی زمان">
+    <span class="category-title">فێربوونی زمان</span>
+    <span class="card-arrow">←</span>
+  </a>
 
-      if (!value) {
-        searchMessage.textContent = "تکایە وشەیەک بنووسە بۆ گەڕان.";
-        return;
-      }
+  <a class="category-card math-card" href="coming-soon.html?section=math">
+    <img class="category-image" src="ferba-math.png" alt="بیرکاری">
+    <span class="category-title">بیرکاری</span>
+    <span class="coming-label">بەم زووانە</span>
+  </a>
 
-      const sections = [
-        { name: "فێربوونی زمان", words: ["زمان", "زمانەکان"], url: "language.html" },
-        { name: "بیرکاری", words: ["بیرکاری", "ژمارە"], url: "coming-soon.html?section=math" },
-        { name: "یارییە فکرییەکان", words: ["یاری", "فکری"], url: "coming-soon.html?section=thinking" },
-        { name: "چیرۆک", words: ["چیرۆک"], url: "coming-soon.html?section=stories" },
-        { name: "فیلمی منداڵان", words: ["فیلم", "ڤیدیۆ"], url: "coming-soon.html?section=videos" }
-      ];
+  <a class="category-card thinking-card" href="coming-soon.html?section=thinking">
+    <img class="category-image" src="ferba-brain-games.png" alt="یارییە فکرییەکان">
+    <span class="category-title">یارییە فکرییەکان</span>
+    <span class="coming-label">بەم زووانە</span>
+  </a>
 
-      const found = sections.find(section =>
-        section.words.some(word => value.includes(word))
-      );
+  <a class="category-card story-card" href="coming-soon.html?section=stories">
+    <img class="category-image" src="ferba-stories.png" alt="چیرۆک">
+    <span class="category-title">چیرۆک</span>
+    <span class="coming-label">بەم زووانە</span>
+  </a>
 
-      if (found) {
-        window.location.href = found.url;
-      } else {
-        searchMessage.textContent = "هیچ بەشێک بەو ناوە نەدۆزرایەوە.";
-      }
-    }
+  <a class="category-card video-card" href="coming-soon.html?section=videos">
+    <img class="category-image" src="ferba-cartoon-videos.png" alt="فیلمی منداڵان">
+    <span class="category-title">فیلمی منداڵان</span>
+    <span class="coming-label">بەم زووانە</span>
+  </a>
 
-    searchSubmit.addEventListener("click", performSearch);
+</section>
 
-    siteSearch.addEventListener("keydown", function (event) {
-      if (event.key === "Enter") {
-        performSearch();
-      }
-    });
+<section class="bottom-note">
+  <span class="note-icon">🌟</span>
+  <div>
+    <strong>هەر ڕۆژێک شتێکی نوێ فێربە!</strong>
+    <p>لە فێربەدا فێربوون دەبێتە یارییەکی خۆش.</p>
+  </div>
+</section>
 
-    // DARK MODE
-    const themeToggle = document.getElementById("themeToggle");
+</main>
 
-    themeToggle.addEventListener("click", function () {
+<footer>
+  <span>© 2026 فێربە | FEERBA</span>
+  <span>فێربوون، یاری، داهاتوویەکی ڕوون</span>
+</footer>
 
-      document.body.classList.toggle("dark-mode");
+<script>
+const searchToggle=document.getElementById("searchToggle");
+const searchPanel=document.getElementById("searchPanel");
+const siteSearch=document.getElementById("siteSearch");
+const searchSubmit=document.getElementById("searchSubmit");
+const searchMessage=document.getElementById("searchMessage");
 
-      const isDark = document.body.classList.contains("dark-mode");
+searchToggle.addEventListener("click",()=>{
+  searchPanel.hidden=!searchPanel.hidden;
+  if(!searchPanel.hidden)siteSearch.focus();
+});
 
-      themeToggle.querySelector("span:last-child").textContent =
-        isDark ? "ڕووناکی" : "دارک مۆد";
+function performSearch(){
+  const value=siteSearch.value.trim();
+  if(!value){
+    searchMessage.textContent="تکایە وشەیەک بنووسە بۆ گەڕان.";
+    return;
+  }
 
-      try {
-        localStorage.setItem(
-          "fe erba-theme",
-          isDark ? "dark" : "light"
-        );
-      } catch (error) {
-        // گۆڕینی ڕەنگ هەر کار دەکات.
-      }
+  const sections=[
+    {words:["زمان","زمانەکان"],url:"language.html"},
+    {words:["بیرکاری","ژمارە"],url:"coming-soon.html?section=math"},
+    {words:["یاری","فکری"],url:"coming-soon.html?section=thinking"},
+    {words:["چیرۆک"],url:"coming-soon.html?section=stories"},
+    {words:["فیلم","ڤیدیۆ"],url:"coming-soon.html?section=videos"}
+  ];
 
-    });
+  const found=sections.find(s=>s.words.some(w=>value.includes(w)));
+  if(found)window.location.href=found.url;
+  else searchMessage.textContent="هیچ بەشێک بەو ناوە نەدۆزرایەوە.";
+}
 
-    // LOAD SAVED THEME
-    try {
+searchSubmit.addEventListener("click",performSearch);
+siteSearch.addEventListener("keydown",e=>{
+  if(e.key==="Enter")performSearch();
+});
 
-      const savedTheme = localStorage.getItem("fe erba-theme");
+const themeToggle=document.getElementById("themeToggle");
 
-      if (savedTheme === "dark") {
-        document.body.classList.add("dark-mode");
-        themeToggle.querySelector("span:last-child").textContent = "ڕووناکی";
-      }
+function applyTheme(dark){
+  document.body.classList.toggle("dark-mode",dark);
+  themeToggle.innerHTML=dark?"☀ <span>ڕووناکی</span>":"☾ <span>دارک مۆد</span>";
+}
 
-    } catch (error) {
-      // ئەگەر بیرگە بەردەست نەبوو، دۆخی ئاسایی بەکاربهێنە.
-    }
+themeToggle.addEventListener("click",()=>{
+  const dark=!document.body.classList.contains("dark-mode");
+  applyTheme(dark);
+  try{localStorage.setItem("feerba-theme",dark?"dark":"light")}catch(e){}
+});
 
-  </script>
+try{
+  applyTheme(localStorage.getItem("feerba-theme")==="dark");
+}catch(e){}
+</script>
 
 </body>
 </html>
