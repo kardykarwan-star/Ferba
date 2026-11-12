@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ku" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#082b69">
+  <meta name="description" content="فێربە؛ شوێنێکی خۆش و سەرنجڕاکێش بۆ فێربوونی منداڵان.">
+  <title>فێربە | FEERBA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="فێربە - پەڕەی سەرەکی">
+      <img src="assets/file_0000000049ec81f4a53a3143eda96773.png" alt="لۆگۆی فێربە">
+      <span class="brand-name"><strong>فێربە</strong><small>FEERBA</small></span>
+    </a>
+
+    <nav class="top-actions" aria-label="بەستەرە سەرەکییەکان">
+      <button class="tool-button search-toggle" id="searchToggle" type="button" aria-label="گەڕان" title="گەڕان">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+        <span>گەڕان</span>
+      </button>
+      <button class="tool-button" id="themeToggle" type="button" aria-label="گۆڕینی دۆخی ڕووناکی" title="دارک مۆد">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.7 8.7 0 1 0 20.5 15.2Z"></path></svg>
+        <span>دارک مۆد</span>
+      </button>
+      <a class="tool-button" href="contact.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v13H4z"></path><path d="m4.5 6 7.5 6 7.5-6"></path></svg>
+        <span>پەیوەندی</span>
+      </a>
+      <a class="tool-button signup" href="register.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><path d="M3.5 19c.5-3.2 2.3-4.8 5.5-4.8 1.3 0 2.4.3 3.2.9M18 8v8m-4-4h8"></path></svg>
+        <span>دروستکردنی هەژمار</span>
+      </a>
+      <a class="tool-button login" href="login.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-5M10 8l4 4-4 4m4-4H3"></path></svg>
+        <span>چوونە ژوورەوە</span>
+      </a>
+    </nav>
+  </header>
+
+  <section class="search-panel" id="searchPanel" hidden>
+    <label for="siteSearch">چی دەتەوێت بدۆزیتەوە؟</label>
+    <div class="search-field">
+      <input id="siteSearch" type="search" placeholder="بۆ نموونە: فێربوونی زمان..." autocomplete="off">
+      <button id="searchSubmit" type="button">گەڕان</button>
+    </div>
+    <p id="searchMessage" class="search-message" aria-live="polite"></p>
+  </section>
+
+  <main>
+    <section class="welcome-hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="sparkle">✦</span> جیهانێکی خۆش بۆ فێربوون</span>
+        <h1>بە خۆشی <em>فێربە!</em></h1>
+        <p>یاری بکە، بزانە، فێربە و هەنگاو بە هەنگاو زیرەکتر ببە.</p>
+        <a class="hero-cta" href="#learningSections">دەست پێ بکە <span>←</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="floating-star star-one">★</div><div class="floating-star star-two">✦</div>
+        <div class="hero-book">📚</div><div class="hero-globe">🌍</div>
+        <div class="hero-pencil">✏️</div>
+      </div>
+    </section>
+
+    <section class="section-heading" id="learningSections">
+      <div><span class="eyebrow">شوێنی گەشتە فێرکارییەکەت</span><h2>بەشەکانی فێربە</h2></div>
+      <span class="heading-star" aria-hidden="true">★</span>
+    </section>
+
+    <section class="category-grid" aria-label="بەشە فێرکارییەکان">
+      <a class="category-card language-card" href="language.html">
+        <span class="card-tag">با لە زمانەوە دەست پێ بکەین</span>
+        <img src="assets/file_00000000d1708210b6d5dcf49cd1ccc0.png" alt="وێنەی فێربوونی زمان">
+        <span class="category-title">فێربوونی زمان</span>
+        <span class="card-arrow" aria-hidden="true">←</span>
+      </a>
+
+      <a class="category-card math-card" href="coming-soon.html?section=math">
+        <span class="category-emoji">➗</span><span class="category-title">بیرکاری</span><span class="coming-label">بەم زووانە</span>
+      </a>
+      <a class="category-card thinking-card" href="coming-soon.html?section=thinking">
+        <span class="category-emoji">🧩</span><span class="category-title">یارییە فکرییەکان</span><span class="coming-label">بەم زووانە</span>
+      </a>
+      <a class="category-card story-card" href="coming-soon.html?section=stories">
+        <span class="category-emoji">📖</span><span class="category-title">چیرۆک</span><span class="coming-label">بەم زووانە</span>
+      </a>
+      <a class="category-card video-card" href="coming-soon.html?section=videos">
+        <span class="category-emoji">🎬</span><span class="category-title">فیلمی منداڵان</span><span class="coming-label">بەم زووانە</span>
+      </a>
+    </section>
+
+    <section class="bottom-note">
+      <span class="note-icon">🌟</span>
+      <div><strong>هەر ڕۆژێک شتێکی نوێ فێربە!</strong><p>لە فێربەدا فێربوون دەبێتە یارییەکی خۆش.</p></div>
+    </section>
+  </main>
+
+  <footer><span>© 2026 فێربە | FEERBA</span><span>فێربوون، یاری، داهاتوویەکی ڕوون</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
