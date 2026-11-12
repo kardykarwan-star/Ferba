@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#082b69">
+<title>چیرۆکەکانی فێربە | FEERBA</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Tahoma,Arial,sans-serif;background:#f5faff;color:#102b55;line-height:1.9;min-height:100vh}
+a{text-decoration:none;color:inherit}
+header{background:#082b69;color:white;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-size:23px;font-weight:bold;color:#ffc928}
+.brand small{display:block;font-size:10px;letter-spacing:3px;text-align:center;color:white}
+.back{background:#ffc928;color:#082b69;padding:9px 17px;border-radius:25px;font-weight:bold;font-size:13px}
+main{width:92%;max-width:1050px;margin:30px auto 45px}
+.hero{text-align:center;background:linear-gradient(120deg,#082b69,#2389df);color:white;padding:35px 20px;border-radius:24px;margin-bottom:30px}
+.hero .emoji{font-size:55px}
+.hero h1{font-size:30px;color:#ffce32}
+.hero p{font-size:14px;color:#e5f2ff;margin-top:8px}
+h2{font-size:23px;margin:20px 0;color:#082b69}
+.stories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.story-card{background:white;border:3px solid white;border-radius:23px;overflow:hidden;box-shadow:0 8px 25px #082b6918;transition:.2s}
+.story-card:hover{transform:translateY(-5px)}
+.art{min-height:230px;display:grid;place-items:center;font-size:105px;background:linear-gradient(145deg,#d9efff,#7dc3f3)}
+.story-card:nth-child(2) .art{background:linear-gradient(145deg,#e4dcff,#a987ed)}
+.card-content{padding:20px;text-align:center}
+.card-content h3{font-size:21px;margin-bottom:7px}
+.card-content p{font-size:13px;color:#647b9a;margin-bottom:16px}
+.read{display:inline-block;background:#ffc928;color:#082b69;padding:10px 24px;border-radius:25px;font-weight:bold;box-shadow:0 4px 0 #d99c00}
+.note{margin-top:25px;background:#fff5d4;padding:18px;border-radius:16px;text-align:center;color:#765516}
+footer{background:#082b69;color:#d9e7fa;text-align:center;padding:18px;font-size:12px}
+@media(max-width:600px){main{margin-top:20px}.hero{padding:25px 15px}.hero h1{font-size:25px}.stories{grid-template-columns:1fr}.art{min-height:210px}.story-card{max-width:480px;width:100%;margin:auto}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="../index.html">فێربە <small>FEERBA</small></a>
+  <a class="back" href="../index.html">← گەڕانەوە بۆ سەرەتا</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="emoji">📚✨</div>
+    <h1>جیهانی چیرۆکەکانی فێربە</h1>
+    <p>با بەیەکەوە بگەڕێین بە ناو جیهانی خەیاڵ و فێربووندا!</p>
+  </section>
+
+  <h2>🌟 چیرۆکەکانمان</h2>
+
+  <section class="stories">
+    <article class="story-card">
+      <div class="art">🐰🌳🦋</div>
+      <div class="card-content">
+        <h3>کەروێشکە بوێرەکە</h3>
+        <p>چیرۆکی کەروێشکێکی بچووک کە بە بوێری هاوڕێکانی یارمەتی دەدات.</p>
+        <a class="read" href="story1.html">خوێندنەوەی چیرۆک ←</a>
+      </div>
+    </article>
+
+    <article class="story-card">
+      <div class="art">🌟🌙👦</div>
+      <div class="card-content">
+        <h3>ئەستێرەی زێڕین</h3>
+        <p>چیرۆکی کوڕێکی بچووک کە ئەستێرەیەکی ونبووی ئاسمان دەدۆزێتەوە.</p>
+        <a class="read" href="story2.html">خوێندنەوەی چیرۆک ←</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="note">
+    <strong>💛 هەر چیرۆکێک وانەیەکی جوانی لەگەڵ خۆی هەیە!</strong>
+    <p>بە خۆشی بخوێنەوە و شتی نوێ فێربە.</p>
+  </section>
+</main>
+
+<footer>© 2026 فێربە | FEERBA — جیهانی فێربوونی منداڵان</footer>
+</body>
+</html>
