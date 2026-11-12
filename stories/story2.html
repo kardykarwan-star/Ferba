@@ -6,34 +6,202 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#082b69">
 <title>ئەستێرەی زێڕین | فێربە</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Tahoma,Arial,sans-serif;background:#f5faff;color:#17345e;line-height:2}
-a{text-decoration:none;color:inherit}
-header{background:#082b69;color:white;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.brand{font-size:22px;font-weight:bold;color:#ffc928}
-nav{display:flex;gap:8px;flex-wrap:wrap}
-nav a{background:#ffffff18;padding:7px 13px;border-radius:20px;font-size:12px}
-main{max-width:850px;width:92%;margin:25px auto 45px}
-.cover{background:linear-gradient(140deg,#dcd9ff,#83a8f3);border:4px solid white;border-radius:25px;padding:30px 15px;text-align:center;box-shadow:0 8px 25px #082b6918}
-.cover .picture{font-size:100px}
-.cover h1{font-size:28px;color:#082b69}
-.cover p{font-size:13px;color:#41618b}
-.story{background:white;border-radius:22px;padding:25px;margin-top:20px;box-shadow:0 6px 22px #082b6910}
-.story p{font-size:16px;margin-bottom:17px}
-.scene{font-size:43px;text-align:center;background:#f1f0ff;border-radius:15px;padding:12px;margin:20px 0}
-.lesson{background:#fff5d4;border:1px solid #ffe6a0;border-radius:18px;padding:20px;margin-top:20px;color:#765516}
-.lesson h2{font-size:19px;margin-bottom:5px}
-.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:22px}
-.btn{display:inline-block;background:#ffc928;color:#082b69;padding:10px 20px;border-radius:25px;font-weight:bold;box-shadow:0 4px 0 #d99c00}
-.btn.secondary{background:#e5efff;box-shadow:none}
-footer{background:#082b69;color:#d9e7fa;text-align:center;padding:18px;font-size:12px}
-@media(max-width:600px){.cover h1{font-size:23px}.cover .picture{font-size:78px}.story{padding:18px}.story p{font-size:15px}}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Tahoma, Arial, sans-serif;
+  background: #f5faff;
+  color: #17345e;
+  line-height: 2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  background: #082b69;
+  color: white;
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffc928;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  background: #ffffff18;
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+main {
+  max-width: 850px;
+  width: 92%;
+  margin: 25px auto 45px;
+}
+
+/* STORY COVER */
+
+.cover {
+  background: linear-gradient(140deg, #dcd9ff, #83a8f3);
+  border: 4px solid white;
+  border-radius: 25px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 8px 25px #082b6918;
+  overflow: hidden;
+}
+
+.cover-image {
+  display: block;
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px;
+  margin: 0 auto 15px;
+}
+
+.cover h1 {
+  font-size: 28px;
+  color: #082b69;
+}
+
+.cover p {
+  font-size: 13px;
+  color: #41618b;
+}
+
+/* STORY TEXT */
+
+.story {
+  background: white;
+  border-radius: 22px;
+  padding: 25px;
+  margin-top: 20px;
+  box-shadow: 0 6px 22px #082b6910;
+}
+
+.story p {
+  font-size: 16px;
+  margin-bottom: 17px;
+}
+
+.scene {
+  font-size: 43px;
+  text-align: center;
+  background: #f1f0ff;
+  border-radius: 15px;
+  padding: 12px;
+  margin: 20px 0;
+}
+
+/* LESSON */
+
+.lesson {
+  background: #fff5d4;
+  border: 1px solid #ffe6a0;
+  border-radius: 18px;
+  padding: 20px;
+  margin-top: 20px;
+  color: #765516;
+}
+
+.lesson h2 {
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+
+/* NAVIGATION */
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.btn {
+  display: inline-block;
+  background: #ffc928;
+  color: #082b69;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  box-shadow: 0 4px 0 #d99c00;
+}
+
+.btn.secondary {
+  background: #e5efff;
+  box-shadow: none;
+}
+
+footer {
+  background: #082b69;
+  color: #d9e7fa;
+  text-align: center;
+  padding: 18px;
+  font-size: 12px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+  .cover h1 {
+    font-size: 23px;
+  }
+
+  .cover {
+    padding: 12px;
+  }
+
+  .story {
+    padding: 18px;
+  }
+
+  .story p {
+    font-size: 15px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    text-align: center;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header>
-  <a class="brand" href="../index.html">فێربە</a>
+  <a class="brand" href="../index.html">فێربە | FEERBA</a>
+
   <nav>
     <a href="index.html">هەموو چیرۆکەکان</a>
     <a href="../index.html">سەرەتا</a>
@@ -41,51 +209,128 @@ footer{background:#082b69;color:#d9e7fa;text-align:center;padding:18px;font-size
 </header>
 
 <main>
+
+  <!-- STORY IMAGE -->
+
   <section class="cover">
-    <div class="picture">🌟🌙👦</div>
+
+    <img
+      class="cover-image"
+      src="file_00000000e2708243907cc9691b50596b.png"
+      alt="ئەستێرەی زێڕین"
+    >
+
     <h1>ئەستێرەی زێڕین</h1>
-    <p>چیرۆکێک دەربارەی میهرەبانی، خۆشەویستی و یارمەتیدان</p>
+
+    <p>
+      چیرۆکێک دەربارەی میهرەبانی، خۆشەویستی و یارمەتیدان
+    </p>
+
   </section>
 
+  <!-- STORY -->
+
   <article class="story">
+
     <div class="scene">🌙✨🏡</div>
 
-    <p>شەوێکی ئارام بوو. کوڕێکی بچووک بە ناوی «ئارام» لە پەنجەرەی ژوورەکەیەوە سەیری ئاسمانی ئەستێردار دەکرد. ئارام زۆر حەزی لە ئەستێرەکان بوو و هەموو شەوێک چیرۆکیان بۆ خۆی دروست دەکرد.</p>
+    <p>
+      شەوێکی ئارام بوو. کوڕێکی بچووک بە ناوی «ئارام»
+      لە پەنجەرەی ژوورەکەیەوە سەیری ئاسمانی ئەستێردار دەکرد.
+      ئارام زۆر حەزی لە ئەستێرەکان بوو و هەموو شەوێک
+      چیرۆکیان بۆ خۆی دروست دەکرد.
+    </p>
 
-    <p>لەناکاو ئەستێرەیەکی زۆر گەش لە ئاسمان ون بوو. ئارام بە سەرسوڕمانەوە وتی: «ئەو ئەستێرە جوانە کوێیە؟»</p>
+    <p>
+      لەناکاو ئەستێرەیەکی زۆر گەش لە ئاسمان ون بوو.
+      ئارام بە سەرسوڕمانەوە وتی:
+      «ئەو ئەستێرە جوانە کوێیە؟»
+    </p>
 
     <div class="scene">⭐🌳✨</div>
 
-    <p>ئارام چووە دەرەوە و لە نزیک باخچەکەدا ڕووناکییەکی زەردی بینی. کاتێک نزیک بووەوە، بینی ئەستێرەیەکی بچووک لەسەر گژوگیایەک کەوتووە و ناتوانێت بگەڕێتەوە ئاسمان.</p>
+    <p>
+      ئارام چووە دەرەوە و لە نزیک باخچەکەدا
+      ڕووناکییەکی زەردی بینی.
+      کاتێک نزیک بووەوە، بینی ئەستێرەیەکی بچووک
+      لەسەر گژوگیایەک کەوتووە و ناتوانێت بگەڕێتەوە ئاسمان.
+    </p>
 
-    <p>ئەستێرەکە بە دەنگێکی نەرم وتی: «تکایە یارمەتیم بدە، من لە ئاسمان کەوتووم و ناتوانم بگەڕێمەوە.»</p>
+    <p>
+      ئەستێرەکە بە دەنگێکی نەرم وتی:
+      «تکایە یارمەتیم بدە، من لە ئاسمان کەوتووم
+      و ناتوانم بگەڕێمەوە.»
+    </p>
 
-    <p>ئارام بە دڵسۆزییەوە وتی: «نیگەران مەبە، من یارمەتیت دەدەم.» ئەستێرەکەی بە نەرمی هەڵگرت و لەسەر دەستی دانا.</p>
+    <p>
+      ئارام بە دڵسۆزییەوە وتی:
+      «نیگەران مەبە، من یارمەتیت دەدەم.»
+      ئەستێرەکەی بە نەرمی هەڵگرت و لەسەر دەستی دانا.
+    </p>
 
     <div class="scene">👦⭐💛</div>
 
-    <p>ئارام سەیری ئاسمانی کرد و بیرێکی لە مێشکیدا دروست بوو. چووە سەر گردێکی بەرز کە لە نزیک ماڵەکەیان بوو. لەوێ ئەستێرەکەی بەرز کردەوە و وتی: «ئەمە ئاسمانەکەتە، هیوادارم بگەڕێیتەوە لای هاوڕێکانت.»</p>
+    <p>
+      ئارام سەیری ئاسمانی کرد و بیرێکی لە مێشکیدا دروست بوو.
+      چووە سەر گردێکی بەرز کە لە نزیک ماڵەکەیان بوو.
+      لەوێ ئەستێرەکەی بەرز کردەوە و وتی:
+      «ئەمە ئاسمانەکەتە، هیوادارم بگەڕێیتەوە لای هاوڕێکانت.»
+    </p>
 
-    <p>ئەستێرەکە دەستی کرد بە درەوشانەوە. ڕووناکییەکی زێڕینی هەموو دەوروبەری ڕووناک کردەوە و هێواش هێواش بەرەو ئاسمان بەرز بووەوە.</p>
+    <p>
+      ئەستێرەکە دەستی کرد بە درەوشانەوە.
+      ڕووناکییەکی زێڕینی هەموو دەوروبەری ڕووناک کردەوە
+      و هێواش هێواش بەرەو ئاسمان بەرز بووەوە.
+    </p>
 
     <div class="scene">🌟🌌💫</div>
 
-    <p>پێش ئەوەی بگاتە ئاسمان، ئەستێرەکە وتی: «سوپاس ئارامی دڵپاک! تۆ ئەمڕۆ فێرت کردین کە میهرەبانی دەتوانێت جیهان ڕووناک بکاتەوە.»</p>
+    <p>
+      پێش ئەوەی بگاتە ئاسمان، ئەستێرەکە وتی:
+      «سوپاس ئارامی دڵپاک!
+      تۆ ئەمڕۆ فێرت کردین کە میهرەبانی
+      دەتوانێت جیهان ڕووناک بکاتەوە.»
+    </p>
 
-    <p>لەو شەوەوە، هەر کاتێک ئارام سەیری ئەستێرەی زێڕینی دەکرد، بیر لەوە دەکردەوە کە یارمەتیدانی کەسانی تر چەندە جوانە.</p>
+    <p>
+      لەو شەوەوە، هەر کاتێک ئارام سەیری ئەستێرەی زێڕینی دەکرد،
+      بیر لەوە دەکردەوە کە یارمەتیدانی کەسانی تر چەندە جوانە.
+    </p>
+
+    <!-- LESSON -->
 
     <section class="lesson">
+
       <h2>🌟 وانەی چیرۆکەکە</h2>
-      <p>میهرەبانی و یارمەتیدان ڕووناکی دەخەنە دڵی خەڵکەوە. هەر کارێکی بچووک و چاک دەتوانێت جیهانێک خۆشتر بکات.</p>
+
+      <p>
+        میهرەبانی و یارمەتیدان ڕووناکی دەخەنە دڵی خەڵکەوە.
+        هەر کارێکی بچووک و چاک دەتوانێت جیهانێک خۆشتر بکات.
+      </p>
+
     </section>
 
+    <!-- NAVIGATION -->
+
     <div class="actions">
-      <a class="btn secondary" href="index.html">← گەڕانەوە بۆ چیرۆکەکان</a>
-      <a class="btn" href="story1.html">چیرۆکی پێشوو ←</a>
+
+      <a class="btn secondary" href="index.html">
+        ← گەڕانەوە بۆ چیرۆکەکان
+      </a>
+
+      <a class="btn" href="story1.html">
+        چیرۆکی پێشوو ←
+      </a>
+
     </div>
+
   </article>
+
 </main>
 
-<footer>© 2026 فێربە | FEERBA</footer>
+<footer>
+  © 2026 فێربە | FEERBA
+</footer>
+
 </body>
 </html>
