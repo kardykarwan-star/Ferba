@@ -1,1 +1,389 @@
 
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#082b69">
+<title>ژووری فێربوونی زمان | FEERBA</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Tahoma, Arial, sans-serif;
+  background: #f5faff;
+  color: #102b55;
+  line-height: 1.9;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  background: #082b69;
+  color: white;
+  padding: 15px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  color: #ffca28;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.brand small {
+  display: block;
+  color: white;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.home-btn {
+  background: #ffc928;
+  color: #082b69;
+  border-radius: 25px;
+  padding: 9px 17px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+main {
+  width: 92%;
+  max-width: 1100px;
+  margin: 28px auto 45px;
+}
+
+.hero {
+  background: linear-gradient(120deg, #082b69, #278ee5);
+  color: white;
+  border-radius: 25px;
+  padding: 35px 20px;
+  text-align: center;
+  box-shadow: 0 9px 25px #082b6920;
+}
+
+.hero-icon {
+  font-size: 55px;
+  margin-bottom: 5px;
+}
+
+.hero h1 {
+  color: #ffce32;
+  font-size: 29px;
+}
+
+.hero p {
+  color: #e7f3ff;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0 18px;
+}
+
+.section-heading h2 {
+  color: #082b69;
+  font-size: 23px;
+}
+
+.section-heading span {
+  font-size: 30px;
+}
+
+/* LANGUAGE CARDS */
+
+.languages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.language-card {
+  background: white;
+  border: 3px solid white;
+  border-radius: 23px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px #082b6918;
+  display: flex;
+  flex-direction: column;
+  transition: .2s;
+}
+
+.language-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 13px 28px #082b6928;
+}
+
+.card-picture {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  color: white;
+}
+
+.english .card-picture {
+  background: linear-gradient(145deg, #168fe0, #0751b8);
+}
+
+.arabic .card-picture {
+  background: linear-gradient(145deg, #36c991, #07976e);
+}
+
+.kurdish .card-picture {
+  background: linear-gradient(145deg, #a46bf1, #6736c5);
+}
+
+.letters {
+  font-size: clamp(38px, 6vw, 65px);
+  font-weight: bold;
+  text-shadow: 0 5px 8px #0003;
+  direction: ltr;
+}
+
+.card-picture .mini-text {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.card-content {
+  padding: 18px 12px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.card-content h3 {
+  color: #082b69;
+  font-size: 21px;
+  margin-bottom: 4px;
+}
+
+.card-content .subtitle {
+  color: #7290b3;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  color: #647b98;
+  font-size: 13px;
+  margin-bottom: 17px;
+  flex: 1;
+}
+
+.start-btn {
+  display: inline-block;
+  background: #ffc928;
+  color: #082b69;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 25px;
+  box-shadow: 0 4px 0 #d99c00;
+  width: 90%;
+  max-width: 210px;
+}
+
+.info {
+  margin-top: 25px;
+  background: #fff5d4;
+  border: 1px solid #ffebad;
+  color: #765516;
+  border-radius: 17px;
+  padding: 18px;
+  text-align: center;
+}
+
+.info strong {
+  font-size: 15px;
+}
+
+.info p {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+footer {
+  background: #082b69;
+  color: #d9e7fa;
+  text-align: center;
+  padding: 18px;
+  font-size: 12px;
+  margin-top: 30px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+  .languages {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .language-card {
+    width: 100%;
+  }
+
+  .card-picture {
+    aspect-ratio: 16 / 9;
+  }
+
+  .letters {
+    font-size: 65px;
+  }
+
+  .hero {
+    padding: 27px 15px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .section-heading h2 {
+    font-size: 20px;
+  }
+
+  .card-content {
+    padding: 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="brand" href="../index.html">
+    فێربە
+    <small>FEERBA</small>
+  </a>
+
+  <a class="home-btn" href="../index.html">
+    ← گەڕانەوە بۆ سەرەتا
+  </a>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-icon">🌍📚</div>
+    <h1>ژووری فێربوونی زمان</h1>
+    <p>
+      بە یاری و خۆشی فێری سێ زمانی جوان ببە!
+    </p>
+  </section>
+
+  <div class="section-heading">
+    <h2>زمانەکان هەڵبژێرە</h2>
+    <span>⭐</span>
+  </div>
+
+  <section class="languages">
+
+    <!-- ENGLISH -->
+
+    <article class="language-card english">
+      <div class="card-picture">
+        <div class="letters">ABC</div>
+        <div class="mini-text">Learn English 🇬🇧</div>
+      </div>
+
+      <div class="card-content">
+        <h3>زمانی ئینگلیزی</h3>
+        <div class="subtitle">English Language</div>
+        <p>
+          فێربوونی پیتەکان، وشەکان، ڕەنگەکان
+          و گفتوگۆی سادە بە شێوەی یاری.
+        </p>
+        <a class="start-btn" href="english.html">
+          دەستپێکردن ←
+        </a>
+      </div>
+    </article>
+
+    <!-- ARABIC -->
+
+    <article class="language-card arabic">
+      <div class="card-picture">
+        <div class="letters">أ ب ت</div>
+        <div class="mini-text">تعلّم العربية 🇮🇶</div>
+      </div>
+
+      <div class="card-content">
+        <h3>زمانی عەرەبی</h3>
+        <div class="subtitle">اللغة العربية</div>
+        <p>
+          فێربوونی پیتە عەرەبییەکان،
+          وشە سادەکان و ڕستەی کورت.
+        </p>
+        <a class="start-btn" href="arabic.html">
+          دەستپێکردن ←
+        </a>
+      </div>
+    </article>
+
+    <!-- KURDISH -->
+
+    <article class="language-card kurdish">
+      <div class="card-picture">
+        <div class="letters">ئ ب پ</div>
+        <div class="mini-text">زمانی کوردی ☀️</div>
+      </div>
+
+      <div class="card-content">
+        <h3>زمانی کوردی</h3>
+        <div class="subtitle">Kurdish Sorani</div>
+        <p>
+          فێربوونی پیتەکانی کوردی،
+          وشەکان و خوێندنەوەی ڕستەی سادە.
+        </p>
+        <a class="start-btn" href="kurdish.html">
+          دەستپێکردن ←
+        </a>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="info">
+    <strong>💛 فێربوون بە خۆشی دەست پێ دەکات!</strong>
+    <p>
+      هەموو وانەکان لە ئاستی سەرەتاییەوە دەست پێ دەکەن.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 فێربە | FEERBA — جیهانی فێربوونی منداڵان
+</footer>
+
+</body>
+</html>
+
