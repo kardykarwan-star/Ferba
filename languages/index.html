@@ -5,273 +5,217 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#082b69">
-<title>ژووری فێربوونی زمان | FEERBA</title>
+<title>فێربوونی زمان | FEERBA</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Tahoma,Arial,sans-serif;
+  background:#f3f8ff;
+  color:#102d5c;
+  line-height:1.9;
 }
-
-body {
-  font-family: Tahoma, Arial, sans-serif;
-  background: #f5faff;
-  color: #102b55;
-  line-height: 1.9;
+a{text-decoration:none;color:inherit}
+header{
+  background:#082b69;
+  color:white;
+  padding:14px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
-
-a {
-  text-decoration: none;
-  color: inherit;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:22px;
+  font-weight:bold;
+  color:#ffcf25;
 }
-
-header {
-  background: #082b69;
-  color: white;
-  padding: 15px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
+.brand img{
+  width:55px;height:55px;
+  object-fit:contain;
 }
-
-.brand {
-  color: #ffca28;
-  font-size: 23px;
-  font-weight: bold;
+.brand small{
+  display:block;
+  color:white;
+  font-size:10px;
+  letter-spacing:3px;
+  text-align:center;
 }
-
-.brand small {
-  display: block;
-  color: white;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-align: center;
+.back{
+  background:#ffca24;
+  color:#082b69;
+  padding:9px 18px;
+  border-radius:30px;
+  font-weight:bold;
+  font-size:13px;
 }
-
-.home-btn {
-  background: #ffc928;
-  color: #082b69;
-  border-radius: 25px;
-  padding: 9px 17px;
-  font-size: 13px;
-  font-weight: bold;
+main{
+  width:92%;
+  max-width:1100px;
+  margin:28px auto 45px;
 }
-
-main {
-  width: 92%;
-  max-width: 1100px;
-  margin: 28px auto 45px;
+.hero{
+  background:linear-gradient(120deg,#092e70,#1685dc);
+  border-radius:25px;
+  padding:25px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:22px;
+  color:white;
+  box-shadow:0 10px 25px #0a39751c;
 }
-
-.hero {
-  background: linear-gradient(120deg, #082b69, #278ee5);
-  color: white;
-  border-radius: 25px;
-  padding: 35px 20px;
-  text-align: center;
-  box-shadow: 0 9px 25px #082b6920;
+.hero img{
+  width:100%;
+  max-height:280px;
+  object-fit:contain;
+  border-radius:18px;
 }
-
-.hero-icon {
-  font-size: 55px;
-  margin-bottom: 5px;
+.hero h1{
+  color:#ffcf28;
+  font-size:clamp(23px,4vw,38px);
+  margin-bottom:10px;
 }
-
-.hero h1 {
-  color: #ffce32;
-  font-size: 29px;
+.hero p{color:#e6f2ff;font-size:14px}
+.section-title{
+  margin:35px 0 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
 }
-
-.hero p {
-  color: #e7f3ff;
-  font-size: 14px;
-  margin-top: 8px;
+.section-title h2{font-size:24px}
+.section-title span{color:#eab91b;font-size:25px}
+.languages{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
 }
-
-.section-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 30px 0 18px;
+.card{
+  background:white;
+  border:3px solid white;
+  border-radius:23px;
+  overflow:hidden;
+  box-shadow:0 8px 22px #173d7012;
+  text-align:center;
+  padding:23px 16px;
+  transition:.25s;
 }
-
-.section-heading h2 {
-  color: #082b69;
-  font-size: 23px;
+.card:hover{transform:translateY(-5px)}
+.flag{
+  width:85px;height:85px;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:43px;
+  margin:0 auto 13px;
+  box-shadow:0 5px 12px #00000015;
 }
-
-.section-heading span {
-  font-size: 30px;
+.english .flag{background:#dceeff}
+.arabic .flag{background:#e6ddff}
+.kurdish .flag{background:#d8f8e9}
+.card h3{font-size:21px;margin-bottom:5px}
+.card p{font-size:13px;color:#78879d;margin-bottom:15px}
+.start{
+  border:0;
+  background:#ffca24;
+  color:#082b69;
+  padding:11px 23px;
+  border-radius:30px;
+  font-family:inherit;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 4px 0 #d99d00;
 }
-
-/* LANGUAGE CARDS */
-
-.languages {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  align-items: stretch;
+.start:active{transform:translateY(3px);box-shadow:none}
+.lesson{
+  display:none;
+  margin-top:30px;
+  background:white;
+  border-radius:24px;
+  padding:25px;
+  box-shadow:0 8px 25px #173d7015;
+  border:2px solid #e6effc;
 }
-
-.language-card {
-  background: white;
-  border: 3px solid white;
-  border-radius: 23px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px #082b6918;
-  display: flex;
-  flex-direction: column;
-  transition: .2s;
+.lesson.active{display:block}
+.lesson h2{
+  color:#0a4b9c;
+  font-size:24px;
+  margin-bottom:8px;
 }
-
-.language-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 13px 28px #082b6928;
+.lesson-intro{color:#71829a;margin-bottom:20px;font-size:14px}
+.lesson-content{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
 }
-
-.card-picture {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 8px;
-  overflow: hidden;
-  color: white;
+.word{
+  background:#edf6ff;
+  border-radius:15px;
+  padding:15px;
+  text-align:center;
+  border:1px solid #d8eaff;
 }
-
-.english .card-picture {
-  background: linear-gradient(145deg, #168fe0, #0751b8);
+.word strong{
+  display:block;
+  font-size:23px;
+  color:#0b4b9c;
 }
-
-.arabic .card-picture {
-  background: linear-gradient(145deg, #36c991, #07976e);
+.word span{font-size:14px;color:#536b88}
+.example{
+  background:#fff6d9;
+  border-radius:15px;
+  padding:17px;
+  margin-top:20px;
+  color:#634c12;
 }
-
-.kurdish .card-picture {
-  background: linear-gradient(145deg, #a46bf1, #6736c5);
+.close{
+  display:block;
+  margin:20px auto 0;
+  background:#0b3477;
+  color:white;
+  border:0;
+  border-radius:25px;
+  padding:10px 25px;
+  font-family:inherit;
+  cursor:pointer;
 }
-
-.letters {
-  font-size: clamp(38px, 6vw, 65px);
-  font-weight: bold;
-  text-shadow: 0 5px 8px #0003;
-  direction: ltr;
+.note{
+  margin-top:30px;
+  background:#fff6d9;
+  border:1px solid #ffebaa;
+  padding:20px;
+  border-radius:18px;
+  text-align:center;
+  color:#80651b;
 }
-
-.card-picture .mini-text {
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
+footer{
+  background:#082b69;
+  color:white;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:12px;
 }
-
-.card-content {
-  padding: 18px 12px 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  align-items: center;
-}
-
-.card-content h3 {
-  color: #082b69;
-  font-size: 21px;
-  margin-bottom: 4px;
-}
-
-.card-content .subtitle {
-  color: #7290b3;
-  font-size: 13px;
-  margin-bottom: 10px;
-}
-
-.card-content p {
-  color: #647b98;
-  font-size: 13px;
-  margin-bottom: 17px;
-  flex: 1;
-}
-
-.start-btn {
-  display: inline-block;
-  background: #ffc928;
-  color: #082b69;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 25px;
-  box-shadow: 0 4px 0 #d99c00;
-  width: 90%;
-  max-width: 210px;
-}
-
-.info {
-  margin-top: 25px;
-  background: #fff5d4;
-  border: 1px solid #ffebad;
-  color: #765516;
-  border-radius: 17px;
-  padding: 18px;
-  text-align: center;
-}
-
-.info strong {
-  font-size: 15px;
-}
-
-.info p {
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-footer {
-  background: #082b69;
-  color: #d9e7fa;
-  text-align: center;
-  padding: 18px;
-  font-size: 12px;
-  margin-top: 30px;
-}
-
-/* MOBILE */
-
-@media(max-width:700px) {
-  .languages {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .language-card {
-    width: 100%;
-  }
-
-  .card-picture {
-    aspect-ratio: 16 / 9;
-  }
-
-  .letters {
-    font-size: 65px;
-  }
-
-  .hero {
-    padding: 27px 15px;
-  }
-
-  .hero h1 {
-    font-size: 24px;
-  }
-
-  .section-heading h2 {
-    font-size: 20px;
-  }
-
-  .card-content {
-    padding: 18px;
-  }
+@media(max-width:700px){
+  .hero{grid-template-columns:1fr;text-align:center;padding:20px}
+  .hero img{max-height:210px;grid-row:1}
+  .languages{grid-template-columns:1fr}
+  .card{padding:20px}
+  .flag{width:75px;height:75px}
+  .lesson{padding:18px}
+  .lesson-content{grid-template-columns:1fr 1fr}
+  header{padding:10px 4%}
+  .brand{font-size:19px}
+  .brand img{width:45px;height:45px}
+  .back{font-size:11px;padding:8px 12px}
+  footer{flex-direction:column;text-align:center}
 }
 </style>
 </head>
@@ -280,110 +224,147 @@ footer {
 
 <header>
   <a class="brand" href="../index.html">
-    فێربە
-    <small>FEERBA</small>
+    <img src="../file_0000000049ec81f4a53a3143eda96773.png" alt="FEERBA">
+    <span>فێربە<small>FEERBA</small></span>
   </a>
-
-  <a class="home-btn" href="../index.html">
-    ← گەڕانەوە بۆ سەرەتا
-  </a>
+  <a class="back" href="../index.html">← گەڕانەوە بۆ سەرەکی</a>
 </header>
 
 <main>
 
-  <section class="hero">
-    <div class="hero-icon">🌍📚</div>
-    <h1>ژووری فێربوونی زمان</h1>
+<section class="hero">
+  <div>
+    <h1>🌟 جیهانی فێربوونی زمان</h1>
     <p>
-      بە یاری و خۆشی فێری سێ زمانی جوان ببە!
+      بە خۆشی و یاری فێری زمانە جیاوازەکان ببە.
+      وانەی ئاسان و جوان بۆ هەموو منداڵان.
     </p>
-  </section>
-
-  <div class="section-heading">
-    <h2>زمانەکان هەڵبژێرە</h2>
-    <span>⭐</span>
   </div>
+  <img src="../file_00000000d1708210b6d5dcf49cd1ccc0.png"
+       alt="وێنەی فێربوونی زمان">
+</section>
 
-  <section class="languages">
+<div class="section-title">
+  <h2>📚 وانەکانی زمان</h2>
+  <span>⭐</span>
+</div>
 
-    <!-- ENGLISH -->
+<section class="languages">
 
-    <article class="language-card english">
-      <div class="card-picture">
-        <div class="letters">ABC</div>
-        <div class="mini-text">Learn English 🇬🇧</div>
-      </div>
+  <article class="card english">
+    <div class="flag">🇬🇧</div>
+    <h3>زمانی ئینگلیزی</h3>
+    <p>فێربوونی وشە و سڵاوکردن بە ئینگلیزی</p>
+    <button class="start" onclick="openLesson('english')">
+      دەستپێکردنی وانە ←
+    </button>
+  </article>
 
-      <div class="card-content">
-        <h3>زمانی ئینگلیزی</h3>
-        <div class="subtitle">English Language</div>
-        <p>
-          فێربوونی پیتەکان، وشەکان، ڕەنگەکان
-          و گفتوگۆی سادە بە شێوەی یاری.
-        </p>
-        <a class="start-btn" href="english.html">
-          دەستپێکردن ←
-        </a>
-      </div>
-    </article>
+  <article class="card arabic">
+    <div class="flag">🇮🇶</div>
+    <h3>زمانی عەرەبی</h3>
+    <p>فێربوونی وشە و سڵاوکردن بە عەرەبی</p>
+    <button class="start" onclick="openLesson('arabic')">
+      دەستپێکردنی وانە ←
+    </button>
+  </article>
 
-    <!-- ARABIC -->
+  <article class="card kurdish">
+    <div class="flag">☀️</div>
+    <h3>زمانی کوردی</h3>
+    <p>فێربوونی وشە و ڕستەی سادەی کوردی</p>
+    <button class="start" onclick="openLesson('kurdish')">
+      دەستپێکردنی وانە ←
+    </button>
+  </article>
 
-    <article class="language-card arabic">
-      <div class="card-picture">
-        <div class="letters">أ ب ت</div>
-        <div class="mini-text">تعلّم العربية 🇮🇶</div>
-      </div>
+</section>
 
-      <div class="card-content">
-        <h3>زمانی عەرەبی</h3>
-        <div class="subtitle">اللغة العربية</div>
-        <p>
-          فێربوونی پیتە عەرەبییەکان،
-          وشە سادەکان و ڕستەی کورت.
-        </p>
-        <a class="start-btn" href="arabic.html">
-          دەستپێکردن ←
-        </a>
-      </div>
-    </article>
+<!-- English lesson -->
+<section class="lesson" id="english">
+  <h2>🇬🇧 وانەی یەکەم: ئینگلیزی</h2>
+  <p class="lesson-intro">فێری چەند وشەیەکی سادەی ئینگلیزی ببە.</p>
+  <div class="lesson-content">
+    <div class="word"><strong>Hello</strong><span>سڵاو</span></div>
+    <div class="word"><strong>Goodbye</strong><span>خواحافیز</span></div>
+    <div class="word"><strong>Thank you</strong><span>سوپاس</span></div>
+    <div class="word"><strong>Book</strong><span>کتێب</span></div>
+    <div class="word"><strong>Apple</strong><span>سێو</span></div>
+    <div class="word"><strong>School</strong><span>قوتابخانە</span></div>
+  </div>
+  <div class="example">
+    <strong>ڕاهێنان:</strong>
+    <p>Hello, my name is Ali.</p>
+    <p>سڵاو، ناوم عەلییە.</p>
+  </div>
+  <button class="close" onclick="closeLessons()">گەڕانەوە بۆ وانەکان</button>
+</section>
 
-    <!-- KURDISH -->
+<!-- Arabic lesson -->
+<section class="lesson" id="arabic">
+  <h2>🇮🇶 وانەی یەکەم: عەرەبی</h2>
+  <p class="lesson-intro">فێری چەند وشەیەکی سادەی عەرەبی ببە.</p>
+  <div class="lesson-content">
+    <div class="word"><strong>مرحبا</strong><span>سڵاو</span></div>
+    <div class="word"><strong>شكراً</strong><span>سوپاس</span></div>
+    <div class="word"><strong>كتاب</strong><span>کتێب</span></div>
+    <div class="word"><strong>مدرسة</strong><span>قوتابخانە</span></div>
+    <div class="word"><strong>قلم</strong><span>پێنووس</span></div>
+    <div class="word"><strong>ماء</strong><span>ئاو</span></div>
+  </div>
+  <div class="example">
+    <strong>ڕاهێنان:</strong>
+    <p>مرحباً، أنا علي.</p>
+    <p>سڵاو، من عەلیم.</p>
+  </div>
+  <button class="close" onclick="closeLessons()">گەڕانەوە بۆ وانەکان</button>
+</section>
 
-    <article class="language-card kurdish">
-      <div class="card-picture">
-        <div class="letters">ئ ب پ</div>
-        <div class="mini-text">زمانی کوردی ☀️</div>
-      </div>
+<!-- Kurdish lesson -->
+<section class="lesson" id="kurdish">
+  <h2>☀️ وانەی یەکەم: کوردی</h2>
+  <p class="lesson-intro">فێری وشە و ڕستەی سادەی زمانی کوردی ببە.</p>
+  <div class="lesson-content">
+    <div class="word"><strong>سڵاو</strong><span>بۆ سڵاوکردن</span></div>
+    <div class="word"><strong>سوپاس</strong><span>بۆ دەربڕینی سوپاس</span></div>
+    <div class="word"><strong>کتێب</strong><span>بۆ خوێندنەوە</span></div>
+    <div class="word"><strong>قوتابخانە</strong><span>شوێنی فێربوون</span></div>
+    <div class="word"><strong>ئاو</strong><span>خواردنەوە</span></div>
+    <div class="word"><strong>هاوڕێ</strong><span>دۆست</span></div>
+  </div>
+  <div class="example">
+    <strong>ڕاهێنان:</strong>
+    <p>سڵاو، ناوم عەلییە.</p>
+    <p>من حەز لە خوێندنەوە دەکەم.</p>
+  </div>
+  <button class="close" onclick="closeLessons()">گەڕانەوە بۆ وانەکان</button>
+</section>
 
-      <div class="card-content">
-        <h3>زمانی کوردی</h3>
-        <div class="subtitle">Kurdish Sorani</div>
-        <p>
-          فێربوونی پیتەکانی کوردی،
-          وشەکان و خوێندنەوەی ڕستەی سادە.
-        </p>
-        <a class="start-btn" href="kurdish.html">
-          دەستپێکردن ←
-        </a>
-      </div>
-    </article>
-
-  </section>
-
-  <section class="info">
-    <strong>💛 فێربوون بە خۆشی دەست پێ دەکات!</strong>
-    <p>
-      هەموو وانەکان لە ئاستی سەرەتاییەوە دەست پێ دەکەن.
-    </p>
-  </section>
+<div class="note">
+  ⭐ هەموو ڕۆژێک وشەیەکی نوێ فێربە!
+  <p>بە خۆشی فێربە و هەنگاو بە هەنگاو پێش بکەوە.</p>
+</div>
 
 </main>
 
 <footer>
-  © 2026 فێربە | FEERBA — جیهانی فێربوونی منداڵان
+  <span>FEERBA | جیهانی فێربوونی منداڵان</span>
+  <span>© 2026 فێربە</span>
 </footer>
+
+<script>
+function openLesson(id){
+  closeLessons();
+  const lesson=document.getElementById(id);
+  lesson.classList.add('active');
+  lesson.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function closeLessons(){
+  document.querySelectorAll('.lesson').forEach(function(item){
+    item.classList.remove('active');
+  });
+}
+</script>
 
 </body>
 </html>
-
